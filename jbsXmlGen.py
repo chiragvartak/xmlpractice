@@ -9,7 +9,7 @@ user = [1, 3, 6, 7, 9, 12, 15]
 bs = [2, 5, 8, 11, 14]
 K = 3 # Number of colors
 
-infinity = math.inf
+infinity = float('inf')
 
 # For pretty xml output
 def prettify(elem):
@@ -87,10 +87,16 @@ predicates = SubElement(instance, 'nbPredicates')
 predicates.set('nbPredicates', '1')
 
 predicate = SubElement(predicates, 'predicate')
-predicate.set('name', 'JbsConstraint')
+predicate.set('name', 'JBSConstraint')
 
 parameters = SubElement(predicate, 'parameters')
+parameters.text = 'int v1 int v2'
 
+expression = SubElement(predicate, 'expression')
+
+functional = SubElement(expression, 'functional')
+functional.text = 'if(ne(mod(v1, 1000),mod(v2, 1000)), add(mod(v1, 1000),mod(v2, 1000)), if((ge(if(lt(div(v1, 1000000), div(mod(v1, 1000000), 1000)), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000)))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))) and le(if(lt(div(v1, 1000000), div(mod(v1, 1000000), 1000)), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000)))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000)))))), infinity, if((ge(if(lt(div(v2, 1000000), div(mod(v2, 1000000), 1000)), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000)))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))) and le(if(lt(div(v2, 1000000), div(mod(v2, 1000000), 1000)), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000)))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000)))))), infinity, add(mod(v1, 1000), mod(v2, 1000)))))'
+# Yes, the above function is too confuscated; but don't get overwhelmed. It's nothing too complicated.
 
 
 # Writing to the output_file

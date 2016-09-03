@@ -19,5 +19,22 @@
         <domain name="domain_of_agent12" nbValues="6">12011001 12011002 12011003 12014001 12014002 12014003</domain>
         <domain name="domain_of_agent15" nbValues="3">15014001 15014002 15014003</domain>
     </domains>
+    <variables nbVariables="7">
+        <variable agent="agent1" domain="domain_of_agent1" name="agent1_variable"/>
+        <variable agent="agent3" domain="domain_of_agent3" name="agent3_variable"/>
+        <variable agent="agent6" domain="domain_of_agent6" name="agent6_variable"/>
+        <variable agent="agent7" domain="domain_of_agent7" name="agent7_variable"/>
+        <variable agent="agent9" domain="domain_of_agent9" name="agent9_variable"/>
+        <variable agent="agent12" domain="domain_of_agent12" name="agent12_variable"/>
+        <variable agent="agent15" domain="domain_of_agent15" name="agent15_variable"/>
+    </variables>
+    <nbPredicates nbPredicates="1">
+        <predicate name="JbsConstraint">
+            <parameters>int v1 int v2</parameters>
+            <expression>
+                <functional>if(ne(mod(v1, 1000),mod(v2, 1000)), add(mod(v1, 1000),mod(v2, 1000)), if((ge(if(lt(div(v1, 1000000), div(mod(v1, 1000000), 1000)), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000)))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))) and le(if(lt(div(v1, 1000000), div(mod(v1, 1000000), 1000)), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000)))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000)))))), infinity, if((ge(if(lt(div(v2, 1000000), div(mod(v2, 1000000), 1000)), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000)))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))) and le(if(lt(div(v2, 1000000), div(mod(v2, 1000000), 1000)), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000)))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000)))))), infinity, add(mod(v1, 1000), mod(v2, 1000)))))</functional>
+            </expression>
+        </predicate>
+    </nbPredicates>
 </instance>
 
