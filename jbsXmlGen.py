@@ -74,6 +74,23 @@ for u in user:
     domain.set('nbValues', str(len(D)))
     domain.text = ' '.join(str(x) for x in D)
 
+variables = SubElement(instance, 'variables')
+variables.set('nbVariables', str(len(user)))
+
+for u in user:
+    variable = SubElement(variables, 'variable')
+    variable.set('name', 'agent' + str(u) + '_variable')
+    variable.set('domain', 'domain_of_agent' + str(u))
+    variable.set('agent', 'agent' + str(u))
+
+predicates = SubElement(instance, 'nbPredicates')
+predicates.set('nbPredicates', '1')
+
+predicate = SubElement(predicates, 'predicate')
+predicate.set('name', 'JbsConstraint')
+
+parameters = SubElement(predicate, 'parameters')
+
 
 
 # Writing to the output_file
