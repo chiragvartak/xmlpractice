@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<instance>
+    <presentation format="XCSP 2.1_FRODO" maxConstraintArity="dunno" maximize="false" name="JBSProblem"/>
+    <agents nbAgents="7">
+        <agent name="agent1"/>
+        <agent name="agent3"/>
+        <agent name="agent6"/>
+        <agent name="agent7"/>
+        <agent name="agent9"/>
+        <agent name="agent12"/>
+        <agent name="agent15"/>
+    </agents>
+    <domains nbDomains="7">
+        <domain name="domain_of_agent1" nbValues="3">1002001 1002002 1002003</domain>
+        <domain name="domain_of_agent3" nbValues="6">3002001 3002002 3002003 3005001 3005002 3005003</domain>
+        <domain name="domain_of_agent6" nbValues="6">6005001 6005002 6005003 6008001 6008002 6008003</domain>
+        <domain name="domain_of_agent7" nbValues="6">7005001 7005002 7005003 7008001 7008002 7008003</domain>
+        <domain name="domain_of_agent9" nbValues="6">9008001 9008002 9008003 9011001 9011002 9011003</domain>
+        <domain name="domain_of_agent12" nbValues="6">12011001 12011002 12011003 12014001 12014002 12014003</domain>
+        <domain name="domain_of_agent15" nbValues="3">15014001 15014002 15014003</domain>
+    </domains>
+</instance>
+
