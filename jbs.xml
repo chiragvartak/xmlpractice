@@ -1,40 +1,54 @@
 <?xml version="1.0" ?>
 <instance>
-    <presentation format="XCSP 2.1_FRODO" maxConstraintArity="dunno" maximize="false" name="JBSProblem"/>
-    <agents nbAgents="7">
-        <agent name="agent1"/>
+    <presentation format="XCSP 2.1_FRODO" maxConstraintArity="2" maximize="false" name="JBSProblem"/>
+    <agents nbAgents="5">
         <agent name="agent3"/>
         <agent name="agent6"/>
         <agent name="agent7"/>
         <agent name="agent9"/>
         <agent name="agent12"/>
-        <agent name="agent15"/>
     </agents>
-    <domains nbDomains="7">
-        <domain name="domain_of_agent1" nbValues="3">1002001 1002002 1002003</domain>
+    <domains nbDomains="5">
         <domain name="domain_of_agent3" nbValues="6">3002001 3002002 3002003 3005001 3005002 3005003</domain>
         <domain name="domain_of_agent6" nbValues="6">6005001 6005002 6005003 6008001 6008002 6008003</domain>
         <domain name="domain_of_agent7" nbValues="6">7005001 7005002 7005003 7008001 7008002 7008003</domain>
         <domain name="domain_of_agent9" nbValues="6">9008001 9008002 9008003 9011001 9011002 9011003</domain>
         <domain name="domain_of_agent12" nbValues="6">12011001 12011002 12011003 12014001 12014002 12014003</domain>
-        <domain name="domain_of_agent15" nbValues="3">15014001 15014002 15014003</domain>
     </domains>
-    <variables nbVariables="7">
-        <variable agent="agent1" domain="domain_of_agent1" name="agent1_variable"/>
-        <variable agent="agent3" domain="domain_of_agent3" name="agent3_variable"/>
-        <variable agent="agent6" domain="domain_of_agent6" name="agent6_variable"/>
-        <variable agent="agent7" domain="domain_of_agent7" name="agent7_variable"/>
-        <variable agent="agent9" domain="domain_of_agent9" name="agent9_variable"/>
-        <variable agent="agent12" domain="domain_of_agent12" name="agent12_variable"/>
-        <variable agent="agent15" domain="domain_of_agent15" name="agent15_variable"/>
+    <variables nbVariables="5">
+        <variable agent="agent3" domain="domain_of_agent3" name="agent3_var"/>
+        <variable agent="agent6" domain="domain_of_agent6" name="agent6_var"/>
+        <variable agent="agent7" domain="domain_of_agent7" name="agent7_var"/>
+        <variable agent="agent9" domain="domain_of_agent9" name="agent9_var"/>
+        <variable agent="agent12" domain="domain_of_agent12" name="agent12_var"/>
     </variables>
-    <nbPredicates nbPredicates="1">
-        <predicate name="JbsConstraint">
+    <predicates nbPredicates="1">
+        <predicate name="JBSConstraint">
             <parameters>int v1 int v2</parameters>
             <expression>
                 <functional>if(ne(mod(v1, 1000),mod(v2, 1000)), add(mod(v1, 1000),mod(v2, 1000)), if((ge(if(lt(div(v1, 1000000), div(mod(v1, 1000000), 1000)), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000)))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))) and le(if(lt(div(v1, 1000000), div(mod(v1, 1000000), 1000)), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000)))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000)))))), infinity, if((ge(if(lt(div(v2, 1000000), div(mod(v2, 1000000), 1000)), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000)))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))) and le(if(lt(div(v2, 1000000), div(mod(v2, 1000000), 1000)), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000)))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000)))))), infinity, add(mod(v1, 1000), mod(v2, 1000)))))</functional>
             </expression>
         </predicate>
-    </nbPredicates>
+    </predicates>
+    <constraints nbConstraints="6">
+        <constraint arity="2" name="constraint_agents_6_and_9" reference="JBSConstraint" scope="agent6_var agent9_var">
+            <parameters>agent6_var agent9_var</parameters>
+        </constraint>
+        <constraint arity="2" name="constraint_agents_6_and_7" reference="JBSConstraint" scope="agent6_var agent7_var">
+            <parameters>agent6_var agent7_var</parameters>
+        </constraint>
+        <constraint arity="2" name="constraint_agents_3_and_6" reference="JBSConstraint" scope="agent3_var agent6_var">
+            <parameters>agent3_var agent6_var</parameters>
+        </constraint>
+        <constraint arity="2" name="constraint_agents_3_and_7" reference="JBSConstraint" scope="agent3_var agent7_var">
+            <parameters>agent3_var agent7_var</parameters>
+        </constraint>
+        <constraint arity="2" name="constraint_agents_9_and_12" reference="JBSConstraint" scope="agent9_var agent12_var">
+            <parameters>agent9_var agent12_var</parameters>
+        </constraint>
+        <constraint arity="2" name="constraint_agents_7_and_9" reference="JBSConstraint" scope="agent7_var agent9_var">
+            <parameters>agent7_var agent9_var</parameters>
+        </constraint>
+    </constraints>
 </instance>
 
