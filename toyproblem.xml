@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<instance>
+    
+    <presentation format="XCSP 2.1_FRODO" maxConstraintArity="2" maximize="false" name="JBSProblem"/>
+
+    <agents nbAgents="5">
+        <agent name="A"/>
+        <agent name="B"/>
+        <agent name="C"/>
+        <agent name="D"/>
+        <agent name="E"/>
+    </agents>
+
+    <domains nbDomains="1">
+        <domain name="colors" nbValues="3">1 2 3 4 5</domain>
+    </domains>
+
+    <variables nbVariables="5">
+        <variable name="a" agent="A" domain="colors"/>
+        <variable name="b" agent="B" domain="colors"/>
+        <variable name="c" agent="C" domain="colors"/>
+        <variable name="d" agent="D" domain="colors"/>
+        <variable name="e" agent="E" domain="colors"/>
+    </variables>
+
+    <relations nbRelations="1">
+        <relation name="coloring_cost_soft" arity="2" nbTuples="5" semantics="soft" defaultCost="0">
+            infinity : 1 1 | 2 2 | 3 3 | 4 4 | 5 5
+        </relation>
+    </relations>
+
+    <functions nbFunctions="1">
+        <function name="coloring_cost" return="int">
+            <parameters>int x int y</parameters>
+            <expression>
+                <functional>
+                    if(eq(x, y), 33, add(x, y))
+                </functional>
+            </expression>
+        </function>
+    </functions>
+
+    <constraints nbConstraints="5">
+        <!-- <constraint name="A-B" arity="2" reference="coloring_cost" scope="a b">
+            <parameters>a b</parameters>
+        </constraint> -->
+        <constraint name="A-B" arity="2" reference="coloring_cost_soft" scope="a b"/>
+
+        <!-- <constraint name="A-D" arity="2" reference="coloring_cost" scope="a d">
+            <parameters>a d</parameters>
+        </constraint> -->
+        <constraint name="A-D" arity="2" reference="coloring_cost_soft" scope="a d"/>
+
+        <!-- <constraint name="B-D" arity="2" reference="coloring_cost" scope="b d">
+            <parameters>b d</parameters>
+        </constraint> -->
+        <constraint name="B-D" arity="2" reference="coloring_cost_soft" scope="b d"/>
+        
+        <!-- <constraint name="B-C" arity="2" reference="coloring_cost" scope="b c">
+            <parameters>b c</parameters>
+        </constraint> -->
+        <constraint name="B-C" arity="2" reference="coloring_cost_soft" scope="b c"/>
+
+        <!-- <constraint name="D-E" arity="2" reference="coloring_cost" scope="d e">
+            <parameters>d e</parameters>
+        </constraint> -->
+        <constraint name="D-E" arity="2" reference="coloring_cost_soft" scope="d e"/>
+    </constraints>
+
+</instance>

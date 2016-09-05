@@ -5,9 +5,13 @@ import math
 output_file = 'jbs.xml'
 
 # Set user and bs from file here.
+# user = [3, 6, 7, 9, 12]
+# bs = [2, 5, 8, 11, 14]
 bs= [32, 40, 48, 56, 64]
-user= [26, 27, 28, 33, 37, 38, 41, 43, 45, 47, 49, 50, 51, 52, 53]
-K = 2 # Number of colors
+user= [26, 27, 28, 33, 37, 38, 41, 43, 45]
+# bs= [32, 40, 48, 56, 64]
+# user= [26, 27, 28, 33, 37, 38, 41, 43, 45, 47, 49, 50, 51, 52, 53]
+K = 3 # Number of colors
 
 infinity = float('inf')
 
@@ -156,6 +160,7 @@ parameters.text = 'int v1 int v2'
 expression = SubElement(function, 'expression')
 
 functional = SubElement(expression, 'functional')
+# "infinity" is replaced by "33" in the function below
 functional.text = 'if(ne(mod(v1, 1000),mod(v2, 1000)), add(mod(v1, 1000),mod(v2, 1000)), if((and(ge(if(lt(div(v1, 1000000), div(mod(v1, 1000000), 1000)), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000)))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))), le(if(lt(div(v1, 1000000), div(mod(v1, 1000000), 1000)), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000)))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))))), 33, if((and(ge(if(lt(div(v2, 1000000), div(mod(v2, 1000000), 1000)), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000)))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))), sub(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))), le(if(lt(div(v2, 1000000), div(mod(v2, 1000000), 1000)), sub(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000)))), add(div(mod(v2, 1000000), 1000), abs(sub(div(v2, 1000000), div(mod(v2, 1000000), 1000))))), add(div(mod(v1, 1000000), 1000), abs(sub(div(v1, 1000000), div(mod(v1, 1000000), 1000))))))), 33, add(mod(v1, 1000), mod(v2, 1000)))))'
 # Yes, the above function is too confuscated; but don't get overwhelmed. It's nothing too complicated.
 
