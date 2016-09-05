@@ -1,38 +1,23 @@
 <?xml version="1.0" ?>
 <instance>
+    <!--bs = [2]-->
+    <!--user = [1, 7, 9]-->
+    <!--K = 5-->
     <presentation format="XCSP 2.1_FRODO" maxConstraintArity="2" maximize="false" name="JBSProblem"/>
-    <agents nbAgents="9">
-        <agent name="agent26"/>
-        <agent name="agent27"/>
-        <agent name="agent28"/>
-        <agent name="agent33"/>
-        <agent name="agent37"/>
-        <agent name="agent38"/>
-        <agent name="agent41"/>
-        <agent name="agent43"/>
-        <agent name="agent45"/>
+    <agents nbAgents="3">
+        <agent name="agent1"/>
+        <agent name="agent7"/>
+        <agent name="agent9"/>
     </agents>
-    <domains nbDomains="9">
-        <domain name="domain_of_agent26" nbValues="3">26032001 26032002 26032003</domain>
-        <domain name="domain_of_agent27" nbValues="3">27032001 27032002 27032003</domain>
-        <domain name="domain_of_agent28" nbValues="3">28032001 28032002 28032003</domain>
-        <domain name="domain_of_agent33" nbValues="6">33032001 33032002 33032003 33040001 33040002 33040003</domain>
-        <domain name="domain_of_agent37" nbValues="6">37032001 37032002 37032003 37040001 37040002 37040003</domain>
-        <domain name="domain_of_agent38" nbValues="6">38032001 38032002 38032003 38040001 38040002 38040003</domain>
-        <domain name="domain_of_agent41" nbValues="6">41040001 41040002 41040003 41048001 41048002 41048003</domain>
-        <domain name="domain_of_agent43" nbValues="6">43040001 43040002 43040003 43048001 43048002 43048003</domain>
-        <domain name="domain_of_agent45" nbValues="6">45040001 45040002 45040003 45048001 45048002 45048003</domain>
+    <domains nbDomains="3">
+        <domain name="domain_of_agent1" nbValues="5">1002001 1002002 1002003 1002004 1002005</domain>
+        <domain name="domain_of_agent7" nbValues="5">7002001 7002002 7002003 7002004 7002005</domain>
+        <domain name="domain_of_agent9" nbValues="5">9002001 9002002 9002003 9002004 9002005</domain>
     </domains>
-    <variables nbVariables="9">
-        <variable agent="agent26" domain="domain_of_agent26" name="agent26_var"/>
-        <variable agent="agent27" domain="domain_of_agent27" name="agent27_var"/>
-        <variable agent="agent28" domain="domain_of_agent28" name="agent28_var"/>
-        <variable agent="agent33" domain="domain_of_agent33" name="agent33_var"/>
-        <variable agent="agent37" domain="domain_of_agent37" name="agent37_var"/>
-        <variable agent="agent38" domain="domain_of_agent38" name="agent38_var"/>
-        <variable agent="agent41" domain="domain_of_agent41" name="agent41_var"/>
-        <variable agent="agent43" domain="domain_of_agent43" name="agent43_var"/>
-        <variable agent="agent45" domain="domain_of_agent45" name="agent45_var"/>
+    <variables nbVariables="3">
+        <variable agent="agent1" domain="domain_of_agent1" name="agent1_var"/>
+        <variable agent="agent7" domain="domain_of_agent7" name="agent7_var"/>
+        <variable agent="agent9" domain="domain_of_agent9" name="agent9_var"/>
     </variables>
     <functions nbFunctions="1">
         <function name="JBSConstraint" return="int">
@@ -42,87 +27,15 @@
             </expression>
         </function>
     </functions>
-    <constraints nbConstraints="27">
-        <constraint arity="2" name="constraint_agents_28_and_37" reference="JBSConstraint" scope="agent28_var agent37_var">
-            <parameters>agent28_var agent37_var</parameters>
+    <constraints nbConstraints="3">
+        <constraint arity="2" name="constraint_agents_7_and_9" reference="JBSConstraint" scope="agent7_var agent9_var">
+            <parameters>agent7_var agent9_var</parameters>
         </constraint>
-        <constraint arity="2" name="constraint_agents_37_and_43" reference="JBSConstraint" scope="agent37_var agent43_var">
-            <parameters>agent37_var agent43_var</parameters>
+        <constraint arity="2" name="constraint_agents_1_and_9" reference="JBSConstraint" scope="agent1_var agent9_var">
+            <parameters>agent1_var agent9_var</parameters>
         </constraint>
-        <constraint arity="2" name="constraint_agents_38_and_43" reference="JBSConstraint" scope="agent38_var agent43_var">
-            <parameters>agent38_var agent43_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_33_and_45" reference="JBSConstraint" scope="agent33_var agent45_var">
-            <parameters>agent33_var agent45_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_26_and_28" reference="JBSConstraint" scope="agent26_var agent28_var">
-            <parameters>agent26_var agent28_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_33_and_41" reference="JBSConstraint" scope="agent33_var agent41_var">
-            <parameters>agent33_var agent41_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_27_and_37" reference="JBSConstraint" scope="agent27_var agent37_var">
-            <parameters>agent27_var agent37_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_28_and_38" reference="JBSConstraint" scope="agent28_var agent38_var">
-            <parameters>agent28_var agent38_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_27_and_33" reference="JBSConstraint" scope="agent27_var agent33_var">
-            <parameters>agent27_var agent33_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_41_and_43" reference="JBSConstraint" scope="agent41_var agent43_var">
-            <parameters>agent41_var agent43_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_38_and_45" reference="JBSConstraint" scope="agent38_var agent45_var">
-            <parameters>agent38_var agent45_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_27_and_28" reference="JBSConstraint" scope="agent27_var agent28_var">
-            <parameters>agent27_var agent28_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_43_and_45" reference="JBSConstraint" scope="agent43_var agent45_var">
-            <parameters>agent43_var agent45_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_37_and_41" reference="JBSConstraint" scope="agent37_var agent41_var">
-            <parameters>agent37_var agent41_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_38_and_41" reference="JBSConstraint" scope="agent38_var agent41_var">
-            <parameters>agent38_var agent41_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_26_and_33" reference="JBSConstraint" scope="agent26_var agent33_var">
-            <parameters>agent26_var agent33_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_37_and_38" reference="JBSConstraint" scope="agent37_var agent38_var">
-            <parameters>agent37_var agent38_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_37_and_45" reference="JBSConstraint" scope="agent37_var agent45_var">
-            <parameters>agent37_var agent45_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_26_and_37" reference="JBSConstraint" scope="agent26_var agent37_var">
-            <parameters>agent26_var agent37_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_33_and_38" reference="JBSConstraint" scope="agent33_var agent38_var">
-            <parameters>agent33_var agent38_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_33_and_43" reference="JBSConstraint" scope="agent33_var agent43_var">
-            <parameters>agent33_var agent43_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_41_and_45" reference="JBSConstraint" scope="agent41_var agent45_var">
-            <parameters>agent41_var agent45_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_26_and_27" reference="JBSConstraint" scope="agent26_var agent27_var">
-            <parameters>agent26_var agent27_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_27_and_38" reference="JBSConstraint" scope="agent27_var agent38_var">
-            <parameters>agent27_var agent38_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_33_and_37" reference="JBSConstraint" scope="agent33_var agent37_var">
-            <parameters>agent33_var agent37_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_28_and_33" reference="JBSConstraint" scope="agent28_var agent33_var">
-            <parameters>agent28_var agent33_var</parameters>
-        </constraint>
-        <constraint arity="2" name="constraint_agents_26_and_38" reference="JBSConstraint" scope="agent26_var agent38_var">
-            <parameters>agent26_var agent38_var</parameters>
+        <constraint arity="2" name="constraint_agents_1_and_7" reference="JBSConstraint" scope="agent1_var agent7_var">
+            <parameters>agent1_var agent7_var</parameters>
         </constraint>
     </constraints>
 </instance>

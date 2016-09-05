@@ -8,10 +8,12 @@ output_file = 'jbs.xml'
 # user = [3, 6, 7, 9, 12]
 # bs = [2, 5, 8, 11, 14]
 bs= [32, 40, 48, 56, 64]
-user= [26, 27, 28, 33, 37, 38, 41, 43, 45]
+user= [26, 27, 28, 33, 37, 38, 41, 43, 45, 67]
 # bs= [32, 40, 48, 56, 64]
 # user= [26, 27, 28, 33, 37, 38, 41, 43, 45, 47, 49, 50, 51, 52, 53]
-K = 3 # Number of colors
+# user = [1, 7, 9]
+# bs = [2]
+K = 5 # Number of colors
 
 infinity = float('inf')
 
@@ -85,6 +87,13 @@ def get_constraints(user, bs):
     return S
 
 instance = Element('instance')
+
+comment = Comment('bs = ' + str(bs))
+instance.append(comment)
+comment = Comment('user = ' + str(user))
+instance.append(comment)
+comment = Comment('K = ' + str(K))
+instance.append(comment)
 
 presentation = SubElement(instance, 'presentation')
 presentation.set('name', 'JBSProblem')
