@@ -1,3 +1,5 @@
+"""This module gives a demo of how to generate an XML file using Python."""
+
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 from xml.dom import minidom
 
